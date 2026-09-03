@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IRONFORGE | Premium Gym Equipment</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        <span>IRON</span>FORGE
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Shop</a>
+        <a href="#categories">Categories</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+
+        <button class="search-btn" onclick="toggleSearch()">
+            🔍
+        </button>
+
+        <button class="cart-btn" onclick="openCart()">
+            🛒
+            <span id="cartCount">0</span>
+        </button>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    </div>
+
+</header>
+
+
+<!-- SEARCH -->
+
+<div class="search-box" id="searchBox">
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search dumbbells, plates, kettlebells..."
+        oninput="searchProducts()"
+    >
+</div>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <span class="hero-tag">BUILT FOR STRENGTH</span>
+
+        <h1>
+            BUILD YOUR
+            <span>POWER.</span>
+        </h1>
+
+        <p>
+            Premium gym equipment engineered for serious training.
+            Upgrade your home gym with equipment that lasts.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#products" class="btn primary-btn">
+                SHOP EQUIPMENT →
+            </a>
+
+            <a href="#categories" class="btn outline-btn">
+                EXPLORE CATEGORIES
+            </a>
+        </div>
+
+        <div class="hero-stats">
+
+            <div>
+                <strong>10K+</strong>
+                <small>Happy Customers</small>
+            </div>
+
+            <div>
+                <strong>150+</strong>
+                <small>Products</small>
+            </div>
+
+            <div>
+                <strong>5★</strong>
+                <small>Customer Rating</small>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="hero-image">
+
+        <div class="hero-circle"></div>
+
+        <div class="floating-weight weight-one">
+            20 KG
+        </div>
+
+        <div class="floating-weight weight-two">
+            10 KG
+        </div>
+
+        <div class="dumbbell-visual">
+            <div class="handle"></div>
+
+            <div class="plate left">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="plate right">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="categories" id="categories">
+
+    <div class="section-heading">
+
+        <div>
+            <span class="section-label">SHOP BY CATEGORY</span>
+            <h2>Train <span>Harder.</span></h2>
+        </div>
+
+        <p>
+            Everything you need to build a powerful home or commercial gym.
+        </p>
+
+    </div>
+
+
+    <div class="category-grid">
+
+        <div class="category-card" onclick="filterCategory('Dumbbells')">
+
+            <div class="category-icon">🏋️</div>
+
+            <h3>Dumbbells</h3>
+
+            <p>From ₹999</p>
+
+            <button>SHOP NOW →</button>
+
+        </div>
+
+
+        <div class="category-card" onclick="filterCategory('Weight Plates')">
+
+            <div class="category-icon">⚫</div>
+
+            <h3>Weight Plates</h3>
+
+            <p>From ₹1,499</p>
+
+            <button>SHOP NOW →</button>
+
+        </div>
+
+
+        <div class="category-card" onclick="filterCategory('Kettlebells')">
+
+            <div class="category-icon">🔔</div>
+
+            <h3>Kettlebells</h3>
+
+            <p>From ₹1,299</p>
+
+            <button>SHOP NOW →</button>
+
+        </div>
+
+
+        <div class="category-card" onclick="filterCategory('Bars')">
+
+            <div class="category-icon">💪</div>
+
+            <h3>Bars</h3>
+
+            <p>From ₹2,499</p>
+
+            <button>SHOP NOW →</button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section class="products-section" id="products">
+
+    <div class="section-heading">
+
+        <div>
+            <span class="section-label">OUR PRODUCTS</span>
+            <h2>Best <span>Sellers.</span></h2>
+        </div>
+
+        <button class="view-all" onclick="showAllProducts()">
+            VIEW ALL →
+        </button>
+
+    </div>
+
+
+    <div class="filter-buttons">
+
+        <button class="filter active" onclick="filterProducts('All', this)">
+            All
+        </button>
+
+        <button class="filter" onclick="filterProducts('Dumbbells', this)">
+            Dumbbells
+        </button>
+
+        <button class="filter" onclick="filterProducts('Weight Plates', this)">
+            Weight Plates
+        </button>
+
+        <button class="filter" onclick="filterProducts('Kettlebells', this)">
+            Kettlebells
+        </button>
+
+        <button class="filter" onclick="filterProducts('Bars', this)">
+            Bars
+        </button>
+
+    </div>
+
+
+    <div class="product-grid" id="productGrid"></div>
+
+</section>
+
+
+<!-- ================= BANNER ================= -->
+
+<section class="promo">
+
+    <div class="promo-content">
+
+        <span>LIMITED OFFER</span>
+
+        <h2>
+            BUILD YOUR
+            <strong>HOME GYM</strong>
+        </h2>
+
+        <p>
+            Get up to <strong>25% OFF</strong> selected equipment.
+        </p>
+
+        <button onclick="scrollToProducts()">
+            SHOP THE SALE →
+        </button>
+
+    </div>
+
+    <div class="promo-number">
+        25%
+    </div>
+
+</section>
+
+
+<!-- ================= WHY US ================= -->
+
+<section class="why-us" id="about">
+
+    <div class="section-heading centered">
+
+        <span class="section-label">WHY IRONFORGE?</span>
+
+        <h2>
+            Equipment Built
+            <span>Different.</span>
+        </h2>
+
+        <p>
+            We don't believe your equipment should be the weakest part
+            of your workout.
+        </p>
+
+    </div>
+
+
+    <div class="features">
+
+        <div class="feature">
+
+            <div class="feature-icon">⚙️</div>
+
+            <h3>Heavy Duty</h3>
+
+            <p>
+                Commercial-grade materials designed to handle
+                intense workouts.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">🛡️</div>
+
+            <h3>Built To Last</h3>
+
+            <p>
+                Premium construction with rigorous quality control
+                on every product.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">🚚</div>
+
+            <h3>Fast Delivery</h3>
+
+            <p>
+                Reliable shipping straight to your doorstep
+                across India.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">↩️</div>
+
+            <h3>Easy Returns</h3>
+
+            <p>
+                Hassle-free returns and customer support whenever
+                you need it.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= NEWSLETTER ================= -->
+
+<section class="newsletter" id="contact">
+
+    <div>
+
+        <span>STAY STRONG</span>
+
+        <h2>
+            Get workout tips & exclusive deals.
+        </h2>
+
+    </div>
+
+    <form onsubmit="subscribe(event)">
+
+        <input
+            type="email"
+            placeholder="Enter your email"
+            required
+        >
+
+        <button type="submit">
+            SUBSCRIBE
+        </button>
+
+    </form>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-main">
+
+        <div class="footer-brand">
+
+            <div class="logo">
+                <span>IRON</span>FORGE
+            </div>
+
+            <p>
+                Premium equipment for people who take
+                their training seriously.
+            </p>
+
+            <div class="socials">
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">YouTube</a>
+            </div>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>SHOP</h4>
+
+            <a href="#products">Dumbbells</a>
+            <a href="#products">Weight Plates</a>
+            <a href="#products">Kettlebells</a>
+            <a href="#products">Bars</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>HELP</h4>
+
+            <a href="#">Shipping</a>
+            <a href="#">Returns</a>
+            <a href="#">Warranty</a>
+            <a href="#">FAQ</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>CONTACT</h4>
+
+            <p>📍 Chennai, India</p>
+            <p>📞 +91 98765 43210</p>
+            <p>✉️ support@ironforge.com</p>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>© 2026 IRONFORGE. All rights reserved.</p>
+
+        <p>Designed for strength.</p>
+
+    </div>
+
+</footer>
+
+
+<!-- ================= CART SIDEBAR ================= -->
+
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+<aside class="cart-sidebar" id="cartSidebar">
+
+    <div class="cart-header">
+
+        <h2>Your Cart</h2>
+
+        <button onclick="closeCart()">✕</button>
+
+    </div>
+
+    <div id="cartItems" class="cart-items"></div>
+
+    <div class="cart-footer">
+
+        <div class="cart-total">
+
+            <span>Total</span>
+
+            <strong id="cartTotal">₹0</strong>
+
+        </div>
+
+        <button class="checkout-btn" onclick="checkout()">
+            CHECKOUT →
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- ================= TOAST ================= -->
+
+<div class="toast" id="toast">
+    Product added to cart!
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
